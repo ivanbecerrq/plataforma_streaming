@@ -1,0 +1,8 @@
+db.users.updateOne(
+   { "_id": 5 },  // Coincidencia por ID, si el usuario no existe, se creará
+   {
+     $set: { "email": "ejemplo_upsert@example.com", "subscription": "premium" },  // Campos que siempre se actualizarán
+     $setOnInsert: { "createdAt": new Date() }  // Campo que se agregará solo si el documento es nuevo
+   },
+   { upsert: true }  // Insertar si no existe
+)
