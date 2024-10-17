@@ -1,0 +1,4 @@
+db.users.updateOne(
+   { "_id": 1 },  // Coincidencia puntual por el ID del usuario
+   { $set: { "email": "nuevo_correo@example.com" } }  // Actualización del campo de email
+)
