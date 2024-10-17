@@ -1,0 +1,4 @@
+db.playlists.updateOne(
+   { "_id": 2 },  // Coincidencia puntual por el ID de la playlist
+   { $addToSet: { "contents": { $each: [ 10, 12 ] } } }  // Agregar múltiples contenidos como enteros
+)
