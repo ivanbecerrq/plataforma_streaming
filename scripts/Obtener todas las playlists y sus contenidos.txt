@@ -1,0 +1,19 @@
+db.playlists.aggregate([
+   {
+      $lookup: {
+         from: "contents",
+         localField: "contents",
+         foreignField: "_id",
+         as: "contentDetails"
+      }
+   },
+   {
+      $project: {
+         name: 1,
+         contentDetails: {
+            title: 1,
+            description: 1
+         }
+      }
+   }
+])
